@@ -23,11 +23,11 @@ limitations under the License.
 - - -
 
 
-ADVL_Application_Network_1 uses the Microsoft® Windows® Communication Foundation (WCF) to allow Andorville™ applications to exchange information and interact to perform higher level functions.
+The Andorville™ Application Network Software uses the Microsoft® Windows® Communication Foundation (WCF) to allow Andorville™ applications to exchange information and interact to perform higher level functions.
 
-ADVL_Application_Network_1 is written in Visual Basic 2015.
+The Application Network software is written in Visual Basic 2015.
 
-The program uses the ADVL_Utilities_Library_1 class library.
+The program uses the Andorville™ Utilities class library.
 
 
 
