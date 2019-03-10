@@ -13,7 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\My Documents\publish\LocalHost\ADVL_ApplicationNetwork\</PublishUrl>
+    <PublishUrl>D:\My Documents\publish\ADVL_Application_Network_1\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -62,10 +62,11 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>F2B0B2F63D53E15219CB67859647C5F77781FD38</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4C8C6E41FCE8336E5FCEF2A6E92A73D4A6A4E31F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ADVL_ApplicationNetwork_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -103,8 +104,30 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsConnection.vb" />
-    <Compile Include="IMsgService.vb" />
+    <Compile Include="frmAddApplication.Designer.vb">
+      <DependentUpon>frmAddApplication.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddApplication.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHtmlDisplay.Designer.vb">
+      <DependentUpon>frmHtmlDisplay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHtmlDisplay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWebPage.Designer.vb">
+      <DependentUpon>frmWebPage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebPage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWebPageList.Designer.vb">
+      <DependentUpon>frmWebPageList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmWebPageList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +135,6 @@
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MsgService.vb" />
     <Compile Include="MsgServiceCallback.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -129,8 +151,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddApplication.resx">
+      <DependentUpon>frmAddApplication.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHtmlDisplay.resx">
+      <DependentUpon>frmHtmlDisplay.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWebPage.resx">
+      <DependentUpon>frmWebPage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWebPageList.resx">
+      <DependentUpon>frmWebPageList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ADVL_ApplicationNetwork_TemporaryKey.pfx" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -152,6 +194,16 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Service References\ServiceReference1\ADVLService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ADVLService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ADVLService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\MsgService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -178,12 +230,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppNet6.ico" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\ADVLService.disco" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ADVL_Utilities_Library_1\ADVL_Utilities_Library_1\ADVL_Utilities_Library_1.vbproj">
       <Project>{8f783c66-3ec9-42a3-b24e-c39c800e3c2e}</Project>
       <Name>ADVL_Utilities_Library_1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

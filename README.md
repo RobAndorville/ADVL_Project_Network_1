@@ -23,11 +23,9 @@ limitations under the License.
 - - -
 
 
-The Andorville™ Application Network Software uses the Microsoft® Windows® Communication Foundation (WCF) to allow Andorville™ applications to exchange information and interact to perform higher level functions.
+The Andorville™ Application Network Software is used to create a hierarchy of projects to form a data model. The activity of the project host applications is coordinated to perform processing and analysis on the data model.
 
-The Application Network software is written in Visual Basic 2015.
+A Share Analysis Application Network (AppNet) is being developed as an AppNet example using data that is readily available on the Internet.
 
-The program uses the Andorville™ Utilities class library.
-
-
+The Share Analysis AppNet data model contains projects for the Shares, Database Tools, Import, Chart and Document Library applications. Each project can have one or more child projects that provide support data and processes. At the top level of analysis, share trade recommendations are provided.
 

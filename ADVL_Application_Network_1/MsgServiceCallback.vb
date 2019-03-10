@@ -1,9 +1,9 @@
 ﻿Imports System.ServiceModel
 Public Class MsgServiceCallback
-    'Implements ServiceReference1.IMsgServiceCallback
-    Implements IMsgServiceCallback
-    'Public Sub OnSendMessage(message As String) Implements ServiceReference1.IMsgServiceCallback.OnSendMessage
-    Public Sub OnSendMessage(message As String) Implements IMsgServiceCallback.OnSendMessage
+    Implements ServiceReference1.IMsgServiceCallback
+    'Implements IMsgServiceCallback
+    Public Sub OnSendMessage(message As String) Implements ServiceReference1.IMsgServiceCallback.OnSendMessage
+        'Public Sub OnSendMessage(message As String) Implements IMsgServiceCallback.OnSendMessage
         'A message has been received.
         'Set the InstrReceived property value to the XMessage. This will also apply the instructions in the XMessage.
         Main.InstrReceived = message
