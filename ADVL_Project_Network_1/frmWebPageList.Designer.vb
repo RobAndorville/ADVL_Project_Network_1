@@ -22,6 +22,7 @@ Partial Class frmWebPageList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.lstWebPages = New System.Windows.Forms.ListBox()
         Me.btnOpen = New System.Windows.Forms.Button()
@@ -33,6 +34,7 @@ Partial Class frmWebPageList
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnOpenInMain = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'btnExit
@@ -135,6 +137,7 @@ Partial Class frmWebPageList
         Me.btnHome.Size = New System.Drawing.Size(48, 22)
         Me.btnHome.TabIndex = 37
         Me.btnHome.Text = "Home"
+        Me.ToolTip1.SetToolTip(Me.btnHome, "Open the Start Page on the Main form")
         Me.btnHome.UseVisualStyleBackColor = True
         '
         'frmWebPageList
@@ -171,4 +174,5 @@ Partial Class frmWebPageList
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnOpenInMain As Button
     Friend WithEvents btnHome As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

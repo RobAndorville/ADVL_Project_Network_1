@@ -46,6 +46,7 @@ Partial Class frmHtmlDisplay
         Me.btnUpdateFormatting = New System.Windows.Forms.Button()
         Me.txtInfo = New System.Windows.Forms.TextBox()
         Me.XmlHtmDisplay1 = New ADVL_Utilities_Library_1.XmlHtmDisplay(Me.components)
+        Me.btnSaveAs = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnExit
@@ -70,7 +71,7 @@ Partial Class frmHtmlDisplay
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(104, 17)
+        Me.Label14.Location = New System.Drawing.Point(228, 16)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(56, 13)
         Me.Label14.TabIndex = 253
@@ -80,16 +81,15 @@ Partial Class frmHtmlDisplay
         '
         Me.txtFileName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtFileName.Location = New System.Drawing.Point(166, 13)
+        Me.txtFileName.Location = New System.Drawing.Point(290, 13)
         Me.txtFileName.Name = "txtFileName"
         Me.txtFileName.ReadOnly = True
-        Me.txtFileName.Size = New System.Drawing.Size(393, 20)
+        Me.txtFileName.Size = New System.Drawing.Size(326, 20)
         Me.txtFileName.TabIndex = 254
         '
         'btnUpdateFormatting
         '
-        Me.btnUpdateFormatting.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUpdateFormatting.Location = New System.Drawing.Point(735, 12)
+        Me.btnUpdateFormatting.Location = New System.Drawing.Point(104, 12)
         Me.btnUpdateFormatting.Name = "btnUpdateFormatting"
         Me.btnUpdateFormatting.Size = New System.Drawing.Size(51, 22)
         Me.btnUpdateFormatting.TabIndex = 256
@@ -99,7 +99,7 @@ Partial Class frmHtmlDisplay
         'txtInfo
         '
         Me.txtInfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtInfo.Location = New System.Drawing.Point(565, 13)
+        Me.txtInfo.Location = New System.Drawing.Point(622, 13)
         Me.txtInfo.Name = "txtInfo"
         Me.txtInfo.ReadOnly = True
         Me.txtInfo.Size = New System.Drawing.Size(164, 20)
@@ -255,11 +255,21 @@ Partial Class frmHtmlDisplay
         Me.XmlHtmDisplay1.TabIndex = 255
         Me.XmlHtmDisplay1.Text = ""
         '
+        'btnSaveAs
+        '
+        Me.btnSaveAs.Location = New System.Drawing.Point(161, 12)
+        Me.btnSaveAs.Name = "btnSaveAs"
+        Me.btnSaveAs.Size = New System.Drawing.Size(61, 22)
+        Me.btnSaveAs.TabIndex = 273
+        Me.btnSaveAs.Text = "Save As"
+        Me.btnSaveAs.UseVisualStyleBackColor = True
+        '
         'frmHtmlDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(852, 530)
+        Me.Controls.Add(Me.btnSaveAs)
         Me.Controls.Add(Me.txtInfo)
         Me.Controls.Add(Me.btnUpdateFormatting)
         Me.Controls.Add(Me.XmlHtmDisplay1)
@@ -281,4 +291,5 @@ Partial Class frmHtmlDisplay
     Friend WithEvents XmlHtmDisplay1 As ADVL_Utilities_Library_1.XmlHtmDisplay
     Friend WithEvents btnUpdateFormatting As Button
     Friend WithEvents txtInfo As TextBox
+    Friend WithEvents btnSaveAs As Button
 End Class

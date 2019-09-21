@@ -45,7 +45,9 @@ Public Class frmWebPage
         End Get
         Set(value As String)
             _fileName = value
-            txtDocumentFile.Text = _fileName
+            txtDocumentFile.Text = _fileName 'Display the document filename on the form.
+            Me.Text = Main.ApplicationInfo.Name & " - Workflow - " & IO.Path.GetFileNameWithoutExtension(_fileName) 'Update the text at the top of the window.
+            RestoreFormSettings() 'Resore the form settings used to display this web page.
         End Set
     End Property
 
@@ -123,14 +125,20 @@ Public Class frmWebPage
 
         'Add code to include other settings to save after the comment line <!---->
 
-        Dim SettingsFileName As String = "FormSettings_" & Main.ApplicationInfo.Name & "_" & Me.Text & ".xml"
+        'Dim SettingsFileName As String = "FormSettings_" & Main.ApplicationInfo.Name & "_" & Me.Text & ".xml"
+
+        'NOTE: After a workflow is loaded, Me.Text is changed to AppName - Workflow - WorkflowName
+        Dim SettingsFileName As String = "FormSettings_" & Me.Text & ".xml"
         Main.Project.SaveXmlSettings(SettingsFileName, settingsData)
     End Sub
 
     Private Sub RestoreFormSettings()
         'Read the form settings from an XML document.
 
-        Dim SettingsFileName As String = "FormSettings_" & Main.ApplicationInfo.Name & "_" & Me.Text & ".xml"
+        'Dim SettingsFileName As String = "FormSettings_" & Main.ApplicationInfo.Name & "_" & Me.Text & ".xml"
+
+        'NOTE: After a workflow is loaded, Me.Text is changed to AppName - Workflow - WorkflowName
+        Dim SettingsFileName As String = "FormSettings_" & Me.Text & ".xml"
 
         If Main.Project.SettingsFileExists(SettingsFileName) Then
             Dim Settings As System.Xml.Linq.XDocument
@@ -148,7 +156,42 @@ Public Class frmWebPage
 
             'Add code to read other saved setting here:
 
+            CheckFormPos()
         End If
+    End Sub
+
+    Private Sub CheckFormPos()
+        'Chech that the form can be seen on a screen.
+
+        Dim MinWidthVisible As Integer = 48 'Minimum number of X pixels visible. The form will be moved if this many form pixels are not visible.
+        Dim MinHeightVisible As Integer = 48 'Minimum number of Y pixels visible. The form will be moved if this many form pixels are not visible.
+
+        Dim FormRect As New Rectangle(Me.Left, Me.Top, Me.Width, Me.Height)
+        Dim WARect As Rectangle = Screen.GetWorkingArea(FormRect) 'The Working Area rectangle - the usable area of the screen containing the form.
+
+        ''Check if the top of the form is less than zero:
+        'If Me.Top < 0 Then Me.Top = 0
+
+        'Check if the top of the form is above the top of the Working Area:
+        If Me.Top < WARect.Top Then
+            Me.Top = WARect.Top
+        End If
+
+        'Check if the top of the form is too close to the bottom of the Working Area:
+        If (Me.Top + MinHeightVisible) > (WARect.Top + WARect.Height) Then
+            Me.Top = WARect.Top + WARect.Height - MinHeightVisible
+        End If
+
+        'Check if the left edge of the form is too close to the right edge of the Working Area:
+        If (Me.Left + MinWidthVisible) > (WARect.Left + WARect.Width) Then
+            Me.Left = WARect.Left + WARect.Width - MinWidthVisible
+        End If
+
+        'Check if the right edge of the form is too close to the left edge of the Working Area:
+        If (Me.Left + Me.Width - MinWidthVisible) < WARect.Left Then
+            Me.Left = WARect.Left - Me.Width + MinWidthVisible
+        End If
+
     End Sub
 
     Protected Overrides Sub WndProc(ByRef m As Message) 'Save the form settings before the form is minimised:
@@ -166,10 +209,14 @@ Public Class frmWebPage
 #Region " Form Display Methods - Code used to display this form." '============================================================================================================================
 
     Private Sub Form_Load(sender As Object, e As EventArgs) Handles Me.Load
-        RestoreFormSettings()   'Restore the form settings
+        'RestoreFormSettings()   'Restore the form settings
 
         Me.WebBrowser1.ObjectForScripting = Me
 
+        'Add page title:
+        'Me.Text = Main.ApplicationInfo.Name & " - Workflow Web Page"
+        Me.Text = Main.ApplicationInfo.Name & " - Workflow"
+        RestoreFormSettings()   'Restore the form settings
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -457,6 +504,9 @@ Public Class frmWebPage
         Return ParentWebPageFormNo.ToString
     End Function
 
+
+
+
     Public Sub RunXMessage(ByVal XMsg As String)
         'Run the XMessage by sending it to Main.InstrReceived.
         Main.InstrReceived = XMsg
@@ -475,7 +525,18 @@ Public Class frmWebPage
         Return Main.ConnectionName
     End Function
 
-    Public Sub SendXMessage(ByVal AppNetName As String, ByVal ConnName As String, ByVal XMsg As String)
+    'Public Function GetAppNetName() As String
+    '    'Return the Application Network Name of the application.
+    '    Return Main.AppNetName
+    'End Function
+
+    Public Function GetProNetName() As String
+        'Return the Application Network Name of the application.
+        Return Main.ProNetName
+    End Function
+
+    'Public Sub SendXMessage(ByVal AppNetName As String, ByVal ConnName As String, ByVal XMsg As String)
+    Public Sub SendXMessage(ByVal ProNetName As String, ByVal ConnName As String, ByVal XMsg As String)
         'Send the XMsg to the application with the connection name ConnName.
         If IsNothing(Main.client) Then
             Main.Message.Add("No client connection available!" & vbCrLf)
@@ -483,8 +544,10 @@ Public Class frmWebPage
             If Main.client.State = ServiceModel.CommunicationState.Faulted Then
                 Main.Message.Add("client state is faulted. Message not sent!" & vbCrLf)
             Else
-                Main.client.SendMessageAsync(AppNetName, ConnName, XMsg)
-                Main.Message.XAddText("Message sent to " & ConnName & " (AppNet: " & AppNetName & ") " & ":" & vbCrLf, "XmlSentNotice")
+                'Main.client.SendMessageAsync(AppNetName, ConnName, XMsg)
+                Main.client.SendMessageAsync(ProNetName, ConnName, XMsg)
+                'Main.Message.XAddText("Message sent to " & ConnName & " (AppNet: " & AppNetName & ") " & ":" & vbCrLf, "XmlSentNotice")
+                Main.Message.XAddText("Message sent to: [" & ProNetName & "]." & ConnName & ":" & vbCrLf, "XmlSentNotice")
                 Main.Message.XAddXml(XMsg)
                 Main.Message.XAddText(vbCrLf, "Normal") 'Add extra line
             End If
@@ -544,6 +607,15 @@ Public Class frmWebPage
         End If
     End Sub
 
+    'Public Sub CloseAppAtConnection(ByVal AppNetName As String, ByVal ConnectionName As String)
+    '    'Close the application at the specified connection.
+    '    Main.CloseAppAtConnection(AppNetName, ConnectionName)
+    'End Sub
+
+    Public Sub CloseAppAtConnection(ByVal ProNetName As String, ByVal ConnectionName As String)
+        'Close the application at the specified connection.
+        Main.CloseAppAtConnection(ProNetName, ConnectionName)
+    End Sub
 
 
 #End Region 'Methods Called by JavaScript -----------------------------------------------------------------------------------------------------------------------------------------------------

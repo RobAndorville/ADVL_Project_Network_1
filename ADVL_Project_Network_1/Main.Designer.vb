@@ -38,6 +38,12 @@ Partial Class Main
         Me.ToolStripMenuItem1_OpenProject = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.btnShowChildProjectInfo = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1_EditWorkflowTabPage = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1_ShowStartPageInWorkflowTab = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtDirName = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.txtFindNodeProjID = New System.Windows.Forms.TextBox()
         Me.btnFindNode = New System.Windows.Forms.Button()
@@ -136,8 +142,6 @@ Partial Class Main
         Me.Label72 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
-        Me.pbOpenAppDirIcon = New System.Windows.Forms.PictureBox()
-        Me.pbAppDirIcon = New System.Windows.Forms.PictureBox()
         Me.cmbNewChildProjectApplication = New System.Windows.Forms.ComboBox()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.cmbNewChildProjectType = New System.Windows.Forms.ComboBox()
@@ -146,6 +150,8 @@ Partial Class Main
         Me.txtNewChildProjectDescription = New System.Windows.Forms.TextBox()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.txtNewChildProjectName = New System.Windows.Forms.TextBox()
+        Me.pbOpenAppDirIcon = New System.Windows.Forms.PictureBox()
+        Me.pbAppDirIcon = New System.Windows.Forms.PictureBox()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.trvAppTree = New System.Windows.Forms.TreeView()
@@ -199,12 +205,11 @@ Partial Class Main
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.chkConnect = New System.Windows.Forms.CheckBox()
-        Me.btnUpdateAppNetName = New System.Windows.Forms.Button()
         Me.btnOpenProject = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.txtProjectPath = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.txtAppNetName = New System.Windows.Forms.TextBox()
+        Me.txtProNetName = New System.Windows.Forms.TextBox()
         Me.btnOpenAppDir = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -243,9 +248,7 @@ Partial Class Main
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtProjectName = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btnAndorville = New System.Windows.Forms.Button()
         Me.AppTreeImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.ProjectIconImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.ProjTreeImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -255,7 +258,7 @@ Partial Class Main
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.btnWebPages = New System.Windows.Forms.Button()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnAndorville = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage15.SuspendLayout()
         Me.TabPage5.SuspendLayout()
@@ -266,6 +269,7 @@ Partial Class Main
         Me.ContextMenuStrip1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage7.SuspendLayout()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -436,6 +440,9 @@ Partial Class Main
         '
         'TabPage7
         '
+        Me.TabPage7.Controls.Add(Me.btnShowChildProjectInfo)
+        Me.TabPage7.Controls.Add(Me.txtDirName)
+        Me.TabPage7.Controls.Add(Me.Label5)
         Me.TabPage7.Controls.Add(Me.Label78)
         Me.TabPage7.Controls.Add(Me.txtFindNodeProjID)
         Me.TabPage7.Controls.Add(Me.btnFindNode)
@@ -458,6 +465,50 @@ Partial Class Main
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Project Information"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'btnShowChildProjectInfo
+        '
+        Me.btnShowChildProjectInfo.ContextMenuStrip = Me.ContextMenuStrip2
+        Me.btnShowChildProjectInfo.Location = New System.Drawing.Point(9, 505)
+        Me.btnShowChildProjectInfo.Name = "btnShowChildProjectInfo"
+        Me.btnShowChildProjectInfo.Size = New System.Drawing.Size(129, 22)
+        Me.btnShowChildProjectInfo.TabIndex = 298
+        Me.btnShowChildProjectInfo.Text = "Show Child Project Info"
+        Me.btnShowChildProjectInfo.UseVisualStyleBackColor = True
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1_EditWorkflowTabPage, Me.ToolStripMenuItem1_ShowStartPageInWorkflowTab})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(248, 48)
+        '
+        'ToolStripMenuItem1_EditWorkflowTabPage
+        '
+        Me.ToolStripMenuItem1_EditWorkflowTabPage.Name = "ToolStripMenuItem1_EditWorkflowTabPage"
+        Me.ToolStripMenuItem1_EditWorkflowTabPage.Size = New System.Drawing.Size(247, 22)
+        Me.ToolStripMenuItem1_EditWorkflowTabPage.Text = "Edit Workflow Tab Page"
+        '
+        'ToolStripMenuItem1_ShowStartPageInWorkflowTab
+        '
+        Me.ToolStripMenuItem1_ShowStartPageInWorkflowTab.Name = "ToolStripMenuItem1_ShowStartPageInWorkflowTab"
+        Me.ToolStripMenuItem1_ShowStartPageInWorkflowTab.Size = New System.Drawing.Size(247, 22)
+        Me.ToolStripMenuItem1_ShowStartPageInWorkflowTab.Text = "Show Start Page In Workflow Tab"
+        '
+        'txtDirName
+        '
+        Me.txtDirName.Location = New System.Drawing.Point(114, 477)
+        Me.txtDirName.Name = "txtDirName"
+        Me.txtDirName.Size = New System.Drawing.Size(346, 20)
+        Me.txtDirName.TabIndex = 297
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(25, 480)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(83, 13)
+        Me.Label5.TabIndex = 296
+        Me.Label5.Text = "Directory Name:"
         '
         'Label78
         '
@@ -810,8 +861,6 @@ Partial Class Main
         Me.TabPage8.Controls.Add(Me.TabControl3)
         Me.TabPage8.Controls.Add(Me.Label44)
         Me.TabPage8.Controls.Add(Me.Label43)
-        Me.TabPage8.Controls.Add(Me.pbOpenAppDirIcon)
-        Me.TabPage8.Controls.Add(Me.pbAppDirIcon)
         Me.TabPage8.Controls.Add(Me.cmbNewChildProjectApplication)
         Me.TabPage8.Controls.Add(Me.Label42)
         Me.TabPage8.Controls.Add(Me.cmbNewChildProjectType)
@@ -820,6 +869,8 @@ Partial Class Main
         Me.TabPage8.Controls.Add(Me.txtNewChildProjectDescription)
         Me.TabPage8.Controls.Add(Me.Label36)
         Me.TabPage8.Controls.Add(Me.txtNewChildProjectName)
+        Me.TabPage8.Controls.Add(Me.pbOpenAppDirIcon)
+        Me.TabPage8.Controls.Add(Me.pbAppDirIcon)
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
@@ -1461,22 +1512,6 @@ Partial Class Main
         Me.Label43.TabIndex = 291
         Me.Label43.Text = "Project icon:"
         '
-        'pbOpenAppDirIcon
-        '
-        Me.pbOpenAppDirIcon.Location = New System.Drawing.Point(442, 120)
-        Me.pbOpenAppDirIcon.Name = "pbOpenAppDirIcon"
-        Me.pbOpenAppDirIcon.Size = New System.Drawing.Size(64, 34)
-        Me.pbOpenAppDirIcon.TabIndex = 290
-        Me.pbOpenAppDirIcon.TabStop = False
-        '
-        'pbAppDirIcon
-        '
-        Me.pbAppDirIcon.Location = New System.Drawing.Point(272, 120)
-        Me.pbAppDirIcon.Name = "pbAppDirIcon"
-        Me.pbAppDirIcon.Size = New System.Drawing.Size(64, 34)
-        Me.pbAppDirIcon.TabIndex = 289
-        Me.pbAppDirIcon.TabStop = False
-        '
         'cmbNewChildProjectApplication
         '
         Me.cmbNewChildProjectApplication.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1549,6 +1584,22 @@ Partial Class Main
         Me.txtNewChildProjectName.Name = "txtNewChildProjectName"
         Me.txtNewChildProjectName.Size = New System.Drawing.Size(624, 20)
         Me.txtNewChildProjectName.TabIndex = 281
+        '
+        'pbOpenAppDirIcon
+        '
+        Me.pbOpenAppDirIcon.Location = New System.Drawing.Point(442, 120)
+        Me.pbOpenAppDirIcon.Name = "pbOpenAppDirIcon"
+        Me.pbOpenAppDirIcon.Size = New System.Drawing.Size(64, 34)
+        Me.pbOpenAppDirIcon.TabIndex = 290
+        Me.pbOpenAppDirIcon.TabStop = False
+        '
+        'pbAppDirIcon
+        '
+        Me.pbAppDirIcon.Location = New System.Drawing.Point(272, 120)
+        Me.pbAppDirIcon.Name = "pbAppDirIcon"
+        Me.pbAppDirIcon.Size = New System.Drawing.Size(64, 34)
+        Me.pbAppDirIcon.TabIndex = 289
+        Me.pbAppDirIcon.TabStop = False
         '
         'TabPage6
         '
@@ -2078,12 +2129,11 @@ Partial Class Main
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.chkConnect)
-        Me.TabPage1.Controls.Add(Me.btnUpdateAppNetName)
         Me.TabPage1.Controls.Add(Me.btnOpenProject)
         Me.TabPage1.Controls.Add(Me.Label28)
         Me.TabPage1.Controls.Add(Me.txtProjectPath)
         Me.TabPage1.Controls.Add(Me.Label26)
-        Me.TabPage1.Controls.Add(Me.txtAppNetName)
+        Me.TabPage1.Controls.Add(Me.txtProNetName)
         Me.TabPage1.Controls.Add(Me.btnOpenAppDir)
         Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.Label6)
@@ -2141,17 +2191,6 @@ Partial Class Main
         Me.chkConnect.Text = "Connect On Open"
         Me.chkConnect.UseVisualStyleBackColor = True
         '
-        'btnUpdateAppNetName
-        '
-        Me.btnUpdateAppNetName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnUpdateAppNetName.Location = New System.Drawing.Point(1019, 31)
-        Me.btnUpdateAppNetName.Name = "btnUpdateAppNetName"
-        Me.btnUpdateAppNetName.Size = New System.Drawing.Size(52, 22)
-        Me.btnUpdateAppNetName.TabIndex = 305
-        Me.btnUpdateAppNetName.Text = "Update"
-        Me.ToolTip1.SetToolTip(Me.btnUpdateAppNetName, "Update the Application Network name")
-        Me.btnUpdateAppNetName.UseVisualStyleBackColor = True
-        '
         'btnOpenProject
         '
         Me.btnOpenProject.Location = New System.Drawing.Point(84, 180)
@@ -2185,18 +2224,18 @@ Partial Class Main
         Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(166, 35)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(103, 13)
+        Me.Label26.Size = New System.Drawing.Size(84, 13)
         Me.Label26.TabIndex = 301
-        Me.Label26.Text = "Application network:"
+        Me.Label26.Text = "Project network:"
         '
-        'txtAppNetName
+        'txtProNetName
         '
-        Me.txtAppNetName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtProNetName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAppNetName.Location = New System.Drawing.Point(275, 32)
-        Me.txtAppNetName.Name = "txtAppNetName"
-        Me.txtAppNetName.Size = New System.Drawing.Size(738, 20)
-        Me.txtAppNetName.TabIndex = 300
+        Me.txtProNetName.Location = New System.Drawing.Point(275, 32)
+        Me.txtProNetName.Name = "txtProNetName"
+        Me.txtProNetName.Size = New System.Drawing.Size(796, 20)
+        Me.txtProNetName.TabIndex = 300
         '
         'btnOpenAppDir
         '
@@ -2529,20 +2568,6 @@ Partial Class Main
         Me.Label3.TabIndex = 18
         Me.Label3.Text = "Project name:"
         '
-        'Timer1
-        '
-        '
-        'btnAndorville
-        '
-        Me.btnAndorville.BackgroundImage = Global.ADVL_ApplicationNetwork.My.Resources.Resources.Andorville_16May16_TM_Crop_Grey
-        Me.btnAndorville.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAndorville.Font = New System.Drawing.Font("Harlow Solid Italic", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAndorville.Location = New System.Drawing.Point(5, 5)
-        Me.btnAndorville.Name = "btnAndorville"
-        Me.btnAndorville.Size = New System.Drawing.Size(118, 29)
-        Me.btnAndorville.TabIndex = 51
-        Me.btnAndorville.UseVisualStyleBackColor = True
-        '
         'AppTreeImageList
         '
         Me.AppTreeImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit
@@ -2602,6 +2627,7 @@ Partial Class Main
         'btnWebPages
         '
         Me.btnWebPages.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnWebPages.ContextMenuStrip = Me.ContextMenuStrip2
         Me.btnWebPages.Location = New System.Drawing.Point(718, 12)
         Me.btnWebPages.Name = "btnWebPages"
         Me.btnWebPages.Size = New System.Drawing.Size(68, 22)
@@ -2612,8 +2638,16 @@ Partial Class Main
         'Timer3
         '
         '
-        'Timer4
+        'btnAndorville
         '
+        Me.btnAndorville.BackgroundImage = Global.ADVL_Project_Network_1.My.Resources.Resources.Andorville_16May16_TM_Crop_Grey
+        Me.btnAndorville.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAndorville.Font = New System.Drawing.Font("Harlow Solid Italic", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAndorville.Location = New System.Drawing.Point(5, 5)
+        Me.btnAndorville.Name = "btnAndorville"
+        Me.btnAndorville.Size = New System.Drawing.Size(118, 29)
+        Me.btnAndorville.TabIndex = 51
+        Me.btnAndorville.UseVisualStyleBackColor = True
         '
         'Main
         '
@@ -2631,7 +2665,7 @@ Partial Class Main
         Me.Controls.Add(Me.btnExit)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
-        Me.Text = "Application Network"
+        Me.Text = "Project Network"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
@@ -2643,6 +2677,7 @@ Partial Class Main
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
@@ -2705,7 +2740,6 @@ Partial Class Main
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtProjectName As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents btnAndorville As Button
     Friend WithEvents TabPage6 As TabPage
@@ -2912,8 +2946,12 @@ Partial Class Main
     Friend WithEvents Label28 As Label
     Friend WithEvents txtProjectPath As TextBox
     Friend WithEvents Label26 As Label
-    Friend WithEvents txtAppNetName As TextBox
-    Friend WithEvents btnUpdateAppNetName As Button
+    Friend WithEvents txtProNetName As TextBox
     Friend WithEvents chkConnect As CheckBox
-    Friend WithEvents Timer4 As Timer
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1_EditWorkflowTabPage As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1_ShowStartPageInWorkflowTab As ToolStripMenuItem
+    Friend WithEvents txtDirName As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents btnShowChildProjectInfo As Button
 End Class

@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{38A18B22-184F-4A25-BDA8-55365BA2DA41}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>ADVL_ApplicationNetwork.My.MyApplication</StartupObject>
-    <RootNamespace>ADVL_ApplicationNetwork</RootNamespace>
-    <AssemblyName>ADVL_ApplicationNetwork</AssemblyName>
+    <StartupObject>ADVL_Project_Network_1.My.MyApplication</StartupObject>
+    <RootNamespace>ADVL_Project_Network_1</RootNamespace>
+    <AssemblyName>ADVL_Project_Network_1</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -36,7 +36,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>ADVL_ApplicationNetwork.xml</DocumentationFile>
+    <DocumentationFile>ADVL_Project_Network_1.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -46,7 +46,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>ADVL_ApplicationNetwork.xml</DocumentationFile>
+    <DocumentationFile>ADVL_Project_Network_1.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -62,7 +62,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4C8C6E41FCE8336E5FCEF2A6E92A73D4A6A4E31F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>02DF78384330D74EF31971C49CB37DC1AD74ADE9</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
