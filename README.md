@@ -1,5 +1,5 @@
-# ADVL_Application_Network_1
-### Andorville™ Application Network Software.
+# ADVL_Project_Network_1
+### Andorville™ Project Network Software.
 
 
 
@@ -23,9 +23,9 @@ limitations under the License.
 - - -
 
 
-The Andorville™ Application Network Software is used to create a hierarchy of projects to form a data model. The activity of the project host applications is coordinated to perform processing and analysis on the data model.
+The Andorville™ Project Network Software (previously called the Application Network) is used to create a hierarchy of projects to form a data model. The activity of the project host applications is coordinated to perform processing and analysis on the data model.
 
-A Share Analysis Application Network (AppNet) is being developed as an AppNet example using data that is readily available on the Internet.
+A Share Analysis System is being developed as an Project Network example using data that is readily available on the Internet.
 
-The Share Analysis AppNet data model contains projects for the Shares, Database Tools, Import, Chart and Document Library applications. Each project can have one or more child projects that provide support data and processes. At the top level of analysis, share trade recommendations are provided.
+The Share Analysis System data model contains projects for the Shares, Database Tools, Import, Chart and Document Library applications. Each project can have one or more child projects that provide support data and processes. At the top level of analysis, share trade recommendations are provided.
 
