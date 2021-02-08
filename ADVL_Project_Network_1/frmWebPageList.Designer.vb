@@ -27,14 +27,21 @@ Partial Class frmWebPageList
         Me.lstWebPages = New System.Windows.Forms.ListBox()
         Me.btnOpen = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.txtNewHtmlFileName = New System.Windows.Forms.TextBox()
-        Me.txtNewHtmlFileTitle = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnOpenInMain = New System.Windows.Forms.Button()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.txtDescription = New System.Windows.Forms.TextBox()
+        Me.txtEdited = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtCreated = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtNewHtmlFileTitle = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.txtNewHtmlFileName = New System.Windows.Forms.TextBox()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnExit
@@ -53,9 +60,9 @@ Partial Class frmWebPageList
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstWebPages.FormattingEnabled = True
-        Me.lstWebPages.Location = New System.Drawing.Point(12, 92)
+        Me.lstWebPages.Location = New System.Drawing.Point(12, 222)
         Me.lstWebPages.Name = "lstWebPages"
-        Me.lstWebPages.Size = New System.Drawing.Size(429, 238)
+        Me.lstWebPages.Size = New System.Drawing.Size(429, 160)
         Me.lstWebPages.TabIndex = 9
         '
         'btnOpen
@@ -75,42 +82,6 @@ Partial Class frmWebPageList
         Me.btnEdit.TabIndex = 11
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'btnNew
-        '
-        Me.btnNew.Location = New System.Drawing.Point(12, 40)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(48, 22)
-        Me.btnNew.TabIndex = 12
-        Me.btnNew.Text = "New"
-        Me.btnNew.UseVisualStyleBackColor = True
-        '
-        'txtNewHtmlFileName
-        '
-        Me.txtNewHtmlFileName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNewHtmlFileName.Location = New System.Drawing.Point(66, 41)
-        Me.txtNewHtmlFileName.Name = "txtNewHtmlFileName"
-        Me.txtNewHtmlFileName.Size = New System.Drawing.Size(375, 20)
-        Me.txtNewHtmlFileName.TabIndex = 13
-        '
-        'txtNewHtmlFileTitle
-        '
-        Me.txtNewHtmlFileTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNewHtmlFileTitle.Location = New System.Drawing.Point(66, 67)
-        Me.txtNewHtmlFileTitle.Name = "txtNewHtmlFileTitle"
-        Me.txtNewHtmlFileTitle.Size = New System.Drawing.Size(375, 20)
-        Me.txtNewHtmlFileTitle.TabIndex = 14
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(30, 70)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 13)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Title:"
         '
         'btnDelete
         '
@@ -137,27 +108,124 @@ Partial Class frmWebPageList
         Me.btnHome.Size = New System.Drawing.Size(48, 22)
         Me.btnHome.TabIndex = 37
         Me.btnHome.Text = "Home"
-        Me.ToolTip1.SetToolTip(Me.btnHome, "Open the Start Page on the Main form")
+        Me.ToolTip1.SetToolTip(Me.btnHome, "Open the Start Page on the Main form Workflow tab")
         Me.btnHome.UseVisualStyleBackColor = True
+        '
+        'txtDescription
+        '
+        Me.txtDescription.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDescription.Location = New System.Drawing.Point(12, 154)
+        Me.txtDescription.Multiline = True
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(429, 62)
+        Me.txtDescription.TabIndex = 46
+        '
+        'txtEdited
+        '
+        Me.txtEdited.Location = New System.Drawing.Point(258, 128)
+        Me.txtEdited.Name = "txtEdited"
+        Me.txtEdited.Size = New System.Drawing.Size(140, 20)
+        Me.txtEdited.TabIndex = 45
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(212, 131)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 44
+        Me.Label3.Text = "Edited:"
+        '
+        'txtCreated
+        '
+        Me.txtCreated.Location = New System.Drawing.Point(66, 128)
+        Me.txtCreated.Name = "txtCreated"
+        Me.txtCreated.Size = New System.Drawing.Size(140, 20)
+        Me.txtCreated.TabIndex = 43
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(13, 131)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 42
+        Me.Label2.Text = "Created:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.txtNewHtmlFileTitle)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.btnNew)
+        Me.GroupBox1.Controls.Add(Me.txtNewHtmlFileName)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 41)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(429, 75)
+        Me.GroupBox1.TabIndex = 48
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Create New Workflow:"
+        '
+        'txtNewHtmlFileTitle
+        '
+        Me.txtNewHtmlFileTitle.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNewHtmlFileTitle.Location = New System.Drawing.Point(63, 49)
+        Me.txtNewHtmlFileTitle.Name = "txtNewHtmlFileTitle"
+        Me.txtNewHtmlFileTitle.Size = New System.Drawing.Size(360, 20)
+        Me.txtNewHtmlFileTitle.TabIndex = 23
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 52)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Title:"
+        '
+        'btnNew
+        '
+        Me.btnNew.Location = New System.Drawing.Point(9, 19)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(48, 22)
+        Me.btnNew.TabIndex = 21
+        Me.btnNew.Text = "New"
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'txtNewHtmlFileName
+        '
+        Me.txtNewHtmlFileName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNewHtmlFileName.Location = New System.Drawing.Point(63, 19)
+        Me.txtNewHtmlFileName.Name = "txtNewHtmlFileName"
+        Me.txtNewHtmlFileName.Size = New System.Drawing.Size(360, 20)
+        Me.txtNewHtmlFileName.TabIndex = 22
         '
         'frmWebPageList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(453, 346)
+        Me.ClientSize = New System.Drawing.Size(453, 390)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.txtDescription)
+        Me.Controls.Add(Me.txtEdited)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.txtCreated)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.btnOpenInMain)
         Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtNewHtmlFileTitle)
-        Me.Controls.Add(Me.txtNewHtmlFileName)
-        Me.Controls.Add(Me.btnNew)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.lstWebPages)
         Me.Controls.Add(Me.btnExit)
         Me.Name = "frmWebPageList"
         Me.Text = "Workflow Web Pages"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -167,12 +235,18 @@ Partial Class frmWebPageList
     Friend WithEvents lstWebPages As ListBox
     Friend WithEvents btnOpen As Button
     Friend WithEvents btnEdit As Button
-    Friend WithEvents btnNew As Button
-    Friend WithEvents txtNewHtmlFileName As TextBox
-    Friend WithEvents txtNewHtmlFileTitle As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnOpenInMain As Button
     Friend WithEvents btnHome As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents txtDescription As TextBox
+    Friend WithEvents txtEdited As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtCreated As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtNewHtmlFileTitle As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnNew As Button
+    Friend WithEvents txtNewHtmlFileName As TextBox
 End Class

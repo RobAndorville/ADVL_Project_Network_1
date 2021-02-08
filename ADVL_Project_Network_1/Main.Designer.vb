@@ -50,6 +50,7 @@ Partial Class Main
         Me.txtNodeIndex = New System.Windows.Forms.TextBox()
         Me.Label53 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnOpenPath = New System.Windows.Forms.Button()
         Me.txtPTProjCreationDate = New System.Windows.Forms.TextBox()
         Me.Label77 = New System.Windows.Forms.Label()
         Me.txtPTProjParentProjectPath = New System.Windows.Forms.TextBox()
@@ -124,13 +125,6 @@ Partial Class Main
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.Label73 = New System.Windows.Forms.Label()
         Me.cmbHPDataType = New System.Windows.Forms.ComboBox()
-        Me.chkProjectDir = New System.Windows.Forms.CheckBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.txtDataFileName = New System.Windows.Forms.TextBox()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.btnFindDataFileDir = New System.Windows.Forms.Button()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.txtDataFileDirectory = New System.Windows.Forms.TextBox()
         Me.txtHPDataName = New System.Windows.Forms.TextBox()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label58 = New System.Windows.Forms.Label()
@@ -349,7 +343,7 @@ Partial Class Main
         Me.TabControl1.Location = New System.Drawing.Point(12, 40)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1085, 611)
+        Me.TabControl1.Size = New System.Drawing.Size(1085, 708)
         Me.TabControl1.TabIndex = 50
         '
         'TabPage15
@@ -378,7 +372,7 @@ Partial Class Main
         Me.TabPage5.Controls.Add(Me.SplitContainer2)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1077, 585)
+        Me.TabPage5.Size = New System.Drawing.Size(1077, 682)
         Me.TabPage5.TabIndex = 6
         Me.TabPage5.Text = "Project Tree"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -396,7 +390,7 @@ Partial Class Main
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.TabControl2)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1077, 585)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1077, 682)
         Me.SplitContainer2.SplitterDistance = 354
         Me.SplitContainer2.TabIndex = 0
         '
@@ -410,7 +404,7 @@ Partial Class Main
         Me.trvProjTree.ItemHeight = 36
         Me.trvProjTree.Location = New System.Drawing.Point(3, 3)
         Me.trvProjTree.Name = "trvProjTree"
-        Me.trvProjTree.Size = New System.Drawing.Size(348, 579)
+        Me.trvProjTree.Size = New System.Drawing.Size(348, 676)
         Me.trvProjTree.TabIndex = 1
         '
         'ContextMenuStrip1
@@ -435,7 +429,7 @@ Partial Class Main
         Me.TabControl2.Location = New System.Drawing.Point(3, 3)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(713, 579)
+        Me.TabControl2.Size = New System.Drawing.Size(713, 676)
         Me.TabControl2.TabIndex = 53
         '
         'TabPage7
@@ -556,6 +550,7 @@ Partial Class Main
         '
         Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.btnOpenPath)
         Me.GroupBox3.Controls.Add(Me.txtPTProjCreationDate)
         Me.GroupBox3.Controls.Add(Me.Label77)
         Me.GroupBox3.Controls.Add(Me.txtPTProjParentProjectPath)
@@ -582,6 +577,15 @@ Partial Class Main
         Me.GroupBox3.TabIndex = 290
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Project:"
+        '
+        'btnOpenPath
+        '
+        Me.btnOpenPath.Location = New System.Drawing.Point(6, 88)
+        Me.btnOpenPath.Name = "btnOpenPath"
+        Me.btnOpenPath.Size = New System.Drawing.Size(48, 22)
+        Me.btnOpenPath.TabIndex = 303
+        Me.btnOpenPath.Text = "Open"
+        Me.btnOpenPath.UseVisualStyleBackColor = True
         '
         'txtPTProjCreationDate
         '
@@ -714,10 +718,10 @@ Partial Class Main
         '
         Me.txtPTProjPath.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPTProjPath.Location = New System.Drawing.Point(50, 67)
+        Me.txtPTProjPath.Location = New System.Drawing.Point(60, 67)
         Me.txtPTProjPath.Multiline = True
         Me.txtPTProjPath.Name = "txtPTProjPath"
-        Me.txtPTProjPath.Size = New System.Drawing.Size(555, 70)
+        Me.txtPTProjPath.Size = New System.Drawing.Size(545, 70)
         Me.txtPTProjPath.TabIndex = 276
         '
         'Label39
@@ -874,7 +878,7 @@ Partial Class Main
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(705, 553)
+        Me.TabPage8.Size = New System.Drawing.Size(705, 650)
         Me.TabPage8.TabIndex = 1
         Me.TabPage8.Text = "Create Child Project"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -1019,7 +1023,7 @@ Partial Class Main
         Me.TabControl3.Location = New System.Drawing.Point(6, 383)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(690, 164)
+        Me.TabControl3.Size = New System.Drawing.Size(690, 261)
         Me.TabControl3.TabIndex = 297
         '
         'TabPage9
@@ -1162,7 +1166,7 @@ Partial Class Main
         Me.TabPage11.Controls.Add(Me.txtHPDataLocn)
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Size = New System.Drawing.Size(682, 138)
+        Me.TabPage11.Size = New System.Drawing.Size(682, 235)
         Me.TabPage11.TabIndex = 2
         Me.TabPage11.Text = "Hybrid Project"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -1179,7 +1183,7 @@ Partial Class Main
         Me.txtHPDataLocn.Location = New System.Drawing.Point(3, 3)
         Me.txtHPDataLocn.Name = "txtHPDataLocn"
         Me.txtHPDataLocn.SelectedIndex = 0
-        Me.txtHPDataLocn.Size = New System.Drawing.Size(684, 132)
+        Me.txtHPDataLocn.Size = New System.Drawing.Size(684, 229)
         Me.txtHPDataLocn.TabIndex = 0
         '
         'TabPage12
@@ -1192,7 +1196,7 @@ Partial Class Main
         Me.TabPage12.Location = New System.Drawing.Point(4, 22)
         Me.TabPage12.Name = "TabPage12"
         Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(676, 106)
+        Me.TabPage12.Size = New System.Drawing.Size(676, 203)
         Me.TabPage12.TabIndex = 0
         Me.TabPage12.Text = "Project Directory"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -1253,7 +1257,7 @@ Partial Class Main
         Me.TabPage14.Controls.Add(Me.Label69)
         Me.TabPage14.Location = New System.Drawing.Point(4, 22)
         Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Size = New System.Drawing.Size(676, 106)
+        Me.TabPage14.Size = New System.Drawing.Size(676, 203)
         Me.TabPage14.TabIndex = 2
         Me.TabPage14.Text = "Settings"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -1307,20 +1311,13 @@ Partial Class Main
         '
         Me.TabPage13.Controls.Add(Me.Label73)
         Me.TabPage13.Controls.Add(Me.cmbHPDataType)
-        Me.TabPage13.Controls.Add(Me.chkProjectDir)
-        Me.TabPage13.Controls.Add(Me.Label54)
-        Me.TabPage13.Controls.Add(Me.txtDataFileName)
-        Me.TabPage13.Controls.Add(Me.Label55)
-        Me.TabPage13.Controls.Add(Me.btnFindDataFileDir)
-        Me.TabPage13.Controls.Add(Me.Label56)
-        Me.TabPage13.Controls.Add(Me.txtDataFileDirectory)
         Me.TabPage13.Controls.Add(Me.txtHPDataName)
         Me.TabPage13.Controls.Add(Me.Label57)
         Me.TabPage13.Controls.Add(Me.Label58)
         Me.TabPage13.Location = New System.Drawing.Point(4, 22)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(676, 106)
+        Me.TabPage13.Size = New System.Drawing.Size(676, 203)
         Me.TabPage13.TabIndex = 1
         Me.TabPage13.Text = "Data"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -1342,71 +1339,6 @@ Partial Class Main
         Me.cmbHPDataType.Name = "cmbHPDataType"
         Me.cmbHPDataType.Size = New System.Drawing.Size(135, 21)
         Me.cmbHPDataType.TabIndex = 287
-        '
-        'chkProjectDir
-        '
-        Me.chkProjectDir.AutoSize = True
-        Me.chkProjectDir.Location = New System.Drawing.Point(6, 136)
-        Me.chkProjectDir.Name = "chkProjectDir"
-        Me.chkProjectDir.Size = New System.Drawing.Size(75, 17)
-        Me.chkProjectDir.TabIndex = 23
-        Me.chkProjectDir.Text = "Project Dir"
-        Me.chkProjectDir.UseVisualStyleBackColor = True
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(6, 169)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(60, 13)
-        Me.Label54.TabIndex = 23
-        Me.Label54.Text = "(.AdvlData)"
-        '
-        'txtDataFileName
-        '
-        Me.txtDataFileName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataFileName.Location = New System.Drawing.Point(90, 159)
-        Me.txtDataFileName.Name = "txtDataFileName"
-        Me.txtDataFileName.Size = New System.Drawing.Size(571, 20)
-        Me.txtDataFileName.TabIndex = 48
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.Location = New System.Drawing.Point(6, 156)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(78, 13)
-        Me.Label55.TabIndex = 47
-        Me.Label55.Text = "Data file name:"
-        '
-        'btnFindDataFileDir
-        '
-        Me.btnFindDataFileDir.Location = New System.Drawing.Point(42, 113)
-        Me.btnFindDataFileDir.Name = "btnFindDataFileDir"
-        Me.btnFindDataFileDir.Size = New System.Drawing.Size(42, 22)
-        Me.btnFindDataFileDir.TabIndex = 46
-        Me.btnFindDataFileDir.Text = "Find"
-        Me.btnFindDataFileDir.UseVisualStyleBackColor = True
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.Location = New System.Drawing.Point(6, 116)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(32, 13)
-        Me.Label56.TabIndex = 45
-        Me.Label56.Text = "Path:"
-        '
-        'txtDataFileDirectory
-        '
-        Me.txtDataFileDirectory.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtDataFileDirectory.Location = New System.Drawing.Point(90, 113)
-        Me.txtDataFileDirectory.Multiline = True
-        Me.txtDataFileDirectory.Name = "txtDataFileDirectory"
-        Me.txtDataFileDirectory.Size = New System.Drawing.Size(580, 40)
-        Me.txtDataFileDirectory.TabIndex = 44
         '
         'txtHPDataName
         '
@@ -1444,7 +1376,7 @@ Partial Class Main
         Me.TabPage16.Controls.Add(Me.Label72)
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
-        Me.TabPage16.Size = New System.Drawing.Size(676, 106)
+        Me.TabPage16.Size = New System.Drawing.Size(676, 203)
         Me.TabPage16.TabIndex = 3
         Me.TabPage16.Text = "System"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -2653,7 +2585,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1109, 663)
+        Me.ClientSize = New System.Drawing.Size(1109, 760)
         Me.Controls.Add(Me.btnWebPages)
         Me.Controls.Add(Me.btnOnline)
         Me.Controls.Add(Me.txtOpenProjectName)
@@ -2844,13 +2776,6 @@ Partial Class Main
     Friend WithEvents txtHPDirectoryName As TextBox
     Friend WithEvents Label52 As Label
     Friend WithEvents TabPage13 As TabPage
-    Friend WithEvents chkProjectDir As CheckBox
-    Friend WithEvents Label54 As Label
-    Friend WithEvents txtDataFileName As TextBox
-    Friend WithEvents Label55 As Label
-    Friend WithEvents btnFindDataFileDir As Button
-    Friend WithEvents Label56 As Label
-    Friend WithEvents txtDataFileDirectory As TextBox
     Friend WithEvents txtHPDataName As TextBox
     Friend WithEvents Label57 As Label
     Friend WithEvents Label58 As Label
@@ -2954,4 +2879,5 @@ Partial Class Main
     Friend WithEvents txtDirName As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents btnShowChildProjectInfo As Button
+    Friend WithEvents btnOpenPath As Button
 End Class

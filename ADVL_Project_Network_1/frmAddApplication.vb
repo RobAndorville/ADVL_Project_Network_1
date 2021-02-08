@@ -69,8 +69,8 @@
     Private Sub CheckFormPos()
         'Chech that the form can be seen on a screen.
 
-        Dim MinWidthVisible As Integer = 48 'Minimum number of X pixels visible. The form will be moved if this many form pixels are not visible.
-        Dim MinHeightVisible As Integer = 48 'Minimum number of Y pixels visible. The form will be moved if this many form pixels are not visible.
+        Dim MinWidthVisible As Integer = 192 'Minimum number of X pixels visible. The form will be moved if this many form pixels are not visible.
+        Dim MinHeightVisible As Integer = 64 'Minimum number of Y pixels visible. The form will be moved if this many form pixels are not visible.
 
         Dim FormRect As New Rectangle(Me.Left, Me.Top, Me.Width, Me.Height)
         Dim WARect As Rectangle = Screen.GetWorkingArea(FormRect) 'The Working Area rectangle - the usable area of the screen containing the form.
@@ -174,6 +174,39 @@
     Private Sub GetAppList()
         'Retrieve the list of application from ComNet.
 
+        'If IsNothing(Main.client) Then
+        '    Main.Message.AddWarning("No client connection available!" & vbCrLf)
+        'Else
+        '    'NOTE: THE FOLLOWING CODE NO LONGER WORKS!?!? TRY SENDING MESSAGE TO THE ADVL_NETWORK_1 APPLICATION TO RETURN TH LIST.
+
+        '    'Main.client.GetApplicationListAsync() 'Request a list of applications from ComNet.
+
+
+        '    Dim decl As New XDeclaration("1.0", "utf-8", "yes")
+        '    Dim doc As New XDocument(decl, Nothing) 'Create an XDocument to store the instructions.
+        '    Dim xmessage As New XElement("XMsg") 'This indicates the start of the message in the XMessage class
+
+        '    Dim clientProNetName As New XElement("ClientProNetName", Main.Project.Name)
+        '    xmessage.Add(clientProNetName)
+
+        '    'NOTE: CURRENTLY ONLY ClientConnectionName IS USED TO IDENTIFY THE CLIENT!!!
+        '    'Dim clientName As New XElement("ClientName", Main.ApplicationInfo.Name) 'This tells the coordinate server the name of the client making the request.
+        '    'xmessage.Add(clientName)
+
+        '    Dim clientConnName As New XElement("ClientConnectionName", Main.ConnectionName)
+        '    xmessage.Add(clientConnName)
+
+        '    Dim command As New XElement("Command", "GetApplicationList")
+        '    xmessage.Add(command)
+
+        '    doc.Add(xmessage)
+        '    Main.client.SendMessageAsync("", "MessageService", doc.ToString)
+        '    Main.Message.XAddText("Message sent to []." & "MessageService" & ":" & vbCrLf, "XmlSentNotice")
+        '    Main.Message.XAddXml(doc.ToString)
+        '    Main.Message.XAddText(vbCrLf, "Message") 'Add extra line
+        'End If
+
+        'NOTE: THE FOLLOWING CODE WORKS AGAIN AFTER FIXING THE SETTINGS IN app.config. ************************************
         If IsNothing(Main.client) Then
             Main.Message.AddWarning("No client connection available!" & vbCrLf)
         Else
