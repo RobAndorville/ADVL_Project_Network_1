@@ -72,7 +72,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>AppNet6.ico</ApplicationIcon>
@@ -82,6 +82,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
@@ -108,6 +110,12 @@
       <DependentUpon>frmAddApplication.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAddApplication.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArchive.Designer.vb">
+      <DependentUpon>frmArchive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmArchive.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHtmlDisplay.Designer.vb">
@@ -160,6 +168,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAddApplication.resx">
       <DependentUpon>frmAddApplication.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmArchive.resx">
+      <DependentUpon>frmArchive.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHtmlDisplay.resx">
       <DependentUpon>frmHtmlDisplay.vb</DependentUpon>

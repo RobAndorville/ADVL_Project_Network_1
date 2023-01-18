@@ -198,6 +198,10 @@ Partial Class Main
         Me.txtNodeKey = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btnOpenParentDir = New System.Windows.Forms.Button()
+        Me.btnOpenArchive = New System.Windows.Forms.Button()
+        Me.btnCreateArchive = New System.Windows.Forms.Button()
+        Me.btnShowProjectInfo = New System.Windows.Forms.Button()
         Me.chkConnect = New System.Windows.Forms.CheckBox()
         Me.btnOpenProject = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
@@ -205,8 +209,6 @@ Partial Class Main
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtProNetName = New System.Windows.Forms.TextBox()
         Me.btnOpenAppDir = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.btnOpenSystem = New System.Windows.Forms.Button()
         Me.btnOpenData = New System.Windows.Forms.Button()
         Me.btnOpenSettings = New System.Windows.Forms.Button()
@@ -214,11 +216,6 @@ Partial Class Main
         Me.txtParentProject = New System.Windows.Forms.TextBox()
         Me.Label81 = New System.Windows.Forms.Label()
         Me.btnParameters = New System.Windows.Forms.Button()
-        Me.btnCheckComNet = New System.Windows.Forms.Button()
-        Me.btnSetUpComNetClient = New System.Windows.Forms.Button()
-        Me.btnGetComNetAppInfo = New System.Windows.Forms.Button()
-        Me.btnGetAppList = New System.Windows.Forms.Button()
-        Me.btnGetConnectionList = New System.Windows.Forms.Button()
         Me.Label79 = New System.Windows.Forms.Label()
         Me.txtSystemLocationType = New System.Windows.Forms.TextBox()
         Me.txtSystemPath = New System.Windows.Forms.TextBox()
@@ -253,6 +250,9 @@ Partial Class Main
         Me.btnWebPages = New System.Windows.Forms.Button()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.btnAndorville = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage15.SuspendLayout()
         Me.TabPage5.SuspendLayout()
@@ -351,7 +351,7 @@ Partial Class Main
         Me.TabPage15.Controls.Add(Me.WebBrowser1)
         Me.TabPage15.Location = New System.Drawing.Point(4, 22)
         Me.TabPage15.Name = "TabPage15"
-        Me.TabPage15.Size = New System.Drawing.Size(1077, 585)
+        Me.TabPage15.Size = New System.Drawing.Size(1077, 682)
         Me.TabPage15.TabIndex = 7
         Me.TabPage15.Text = "Workflow"
         Me.TabPage15.UseVisualStyleBackColor = True
@@ -364,7 +364,7 @@ Partial Class Main
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(1071, 579)
+        Me.WebBrowser1.Size = New System.Drawing.Size(1071, 676)
         Me.WebBrowser1.TabIndex = 67
         '
         'TabPage5
@@ -455,7 +455,7 @@ Partial Class Main
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(705, 553)
+        Me.TabPage7.Size = New System.Drawing.Size(705, 650)
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "Project Information"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -855,6 +855,8 @@ Partial Class Main
         '
         'TabPage8
         '
+        Me.TabPage8.Controls.Add(Me.Label8)
+        Me.TabPage8.Controls.Add(Me.Label6)
         Me.TabPage8.Controls.Add(Me.txtNewChildParentID)
         Me.TabPage8.Controls.Add(Me.Label65)
         Me.TabPage8.Controls.Add(Me.txtNewChildParentText)
@@ -1036,7 +1038,7 @@ Partial Class Main
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(682, 138)
+        Me.TabPage9.Size = New System.Drawing.Size(682, 235)
         Me.TabPage9.TabIndex = 0
         Me.TabPage9.Text = "Directory Project"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -1099,7 +1101,7 @@ Partial Class Main
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(682, 138)
+        Me.TabPage10.Size = New System.Drawing.Size(682, 235)
         Me.TabPage10.TabIndex = 1
         Me.TabPage10.Text = "Archive Project"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -1538,7 +1540,7 @@ Partial Class Main
         Me.TabPage6.Controls.Add(Me.SplitContainer1)
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1077, 585)
+        Me.TabPage6.Size = New System.Drawing.Size(1077, 682)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Application Tree"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -1583,7 +1585,7 @@ Partial Class Main
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label27)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtNodeKey)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label22)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1071, 579)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1071, 676)
         Me.SplitContainer1.SplitterDistance = 479
         Me.SplitContainer1.TabIndex = 1
         '
@@ -1596,7 +1598,7 @@ Partial Class Main
         Me.trvAppTree.ItemHeight = 36
         Me.trvAppTree.Location = New System.Drawing.Point(3, 3)
         Me.trvAppTree.Name = "trvAppTree"
-        Me.trvAppTree.Size = New System.Drawing.Size(473, 573)
+        Me.trvAppTree.Size = New System.Drawing.Size(473, 670)
         Me.trvAppTree.TabIndex = 0
         '
         'btnGetAppInfo
@@ -2060,6 +2062,10 @@ Partial Class Main
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.btnOpenParentDir)
+        Me.TabPage1.Controls.Add(Me.btnOpenArchive)
+        Me.TabPage1.Controls.Add(Me.btnCreateArchive)
+        Me.TabPage1.Controls.Add(Me.btnShowProjectInfo)
         Me.TabPage1.Controls.Add(Me.chkConnect)
         Me.TabPage1.Controls.Add(Me.btnOpenProject)
         Me.TabPage1.Controls.Add(Me.Label28)
@@ -2067,8 +2073,6 @@ Partial Class Main
         Me.TabPage1.Controls.Add(Me.Label26)
         Me.TabPage1.Controls.Add(Me.txtProNetName)
         Me.TabPage1.Controls.Add(Me.btnOpenAppDir)
-        Me.TabPage1.Controls.Add(Me.Label8)
-        Me.TabPage1.Controls.Add(Me.Label6)
         Me.TabPage1.Controls.Add(Me.btnOpenSystem)
         Me.TabPage1.Controls.Add(Me.btnOpenData)
         Me.TabPage1.Controls.Add(Me.btnOpenSettings)
@@ -2076,11 +2080,6 @@ Partial Class Main
         Me.TabPage1.Controls.Add(Me.txtParentProject)
         Me.TabPage1.Controls.Add(Me.Label81)
         Me.TabPage1.Controls.Add(Me.btnParameters)
-        Me.TabPage1.Controls.Add(Me.btnCheckComNet)
-        Me.TabPage1.Controls.Add(Me.btnSetUpComNetClient)
-        Me.TabPage1.Controls.Add(Me.btnGetComNetAppInfo)
-        Me.TabPage1.Controls.Add(Me.btnGetAppList)
-        Me.TabPage1.Controls.Add(Me.btnGetConnectionList)
         Me.TabPage1.Controls.Add(Me.Label79)
         Me.TabPage1.Controls.Add(Me.txtSystemLocationType)
         Me.TabPage1.Controls.Add(Me.txtSystemPath)
@@ -2108,10 +2107,49 @@ Partial Class Main
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1077, 585)
+        Me.TabPage1.Size = New System.Drawing.Size(1077, 682)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Project Information"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'btnOpenParentDir
+        '
+        Me.btnOpenParentDir.Location = New System.Drawing.Point(125, 397)
+        Me.btnOpenParentDir.Name = "btnOpenParentDir"
+        Me.btnOpenParentDir.Size = New System.Drawing.Size(125, 22)
+        Me.btnOpenParentDir.TabIndex = 311
+        Me.btnOpenParentDir.Text = "Open Parent Directory"
+        Me.ToolTip1.SetToolTip(Me.btnOpenParentDir, "Open the Parent directory")
+        Me.btnOpenParentDir.UseVisualStyleBackColor = True
+        '
+        'btnOpenArchive
+        '
+        Me.btnOpenArchive.Location = New System.Drawing.Point(354, 397)
+        Me.btnOpenArchive.Name = "btnOpenArchive"
+        Me.btnOpenArchive.Size = New System.Drawing.Size(94, 22)
+        Me.btnOpenArchive.TabIndex = 310
+        Me.btnOpenArchive.Text = "Open Archive"
+        Me.ToolTip1.SetToolTip(Me.btnOpenArchive, "Open a project archive file")
+        Me.btnOpenArchive.UseVisualStyleBackColor = True
+        '
+        'btnCreateArchive
+        '
+        Me.btnCreateArchive.Location = New System.Drawing.Point(256, 397)
+        Me.btnCreateArchive.Name = "btnCreateArchive"
+        Me.btnCreateArchive.Size = New System.Drawing.Size(92, 22)
+        Me.btnCreateArchive.TabIndex = 309
+        Me.btnCreateArchive.Text = "Create Archive"
+        Me.ToolTip1.SetToolTip(Me.btnCreateArchive, "Create a project archive file")
+        Me.btnCreateArchive.UseVisualStyleBackColor = True
+        '
+        'btnShowProjectInfo
+        '
+        Me.btnShowProjectInfo.Location = New System.Drawing.Point(6, 397)
+        Me.btnShowProjectInfo.Name = "btnShowProjectInfo"
+        Me.btnShowProjectInfo.Size = New System.Drawing.Size(113, 22)
+        Me.btnShowProjectInfo.TabIndex = 308
+        Me.btnShowProjectInfo.Text = "Show Project Info"
+        Me.btnShowProjectInfo.UseVisualStyleBackColor = True
         '
         'chkConnect
         '
@@ -2178,24 +2216,6 @@ Partial Class Main
         Me.btnOpenAppDir.Text = "Open Application Directory"
         Me.btnOpenAppDir.UseVisualStyleBackColor = True
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(562, 374)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(41, 13)
-        Me.Label8.TabIndex = 297
-        Me.Label8.Text = "d:h:m:s"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(374, 374)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(41, 13)
-        Me.Label6.TabIndex = 296
-        Me.Label6.Text = "d:h:m:s"
-        '
         'btnOpenSystem
         '
         Me.btnOpenSystem.Location = New System.Drawing.Point(84, 334)
@@ -2260,51 +2280,6 @@ Partial Class Main
         Me.btnParameters.Text = "Parameters"
         Me.btnParameters.UseVisualStyleBackColor = True
         '
-        'btnCheckComNet
-        '
-        Me.btnCheckComNet.Location = New System.Drawing.Point(544, 397)
-        Me.btnCheckComNet.Name = "btnCheckComNet"
-        Me.btnCheckComNet.Size = New System.Drawing.Size(110, 34)
-        Me.btnCheckComNet.TabIndex = 88
-        Me.btnCheckComNet.Text = "Check ComNet Service"
-        Me.btnCheckComNet.UseVisualStyleBackColor = True
-        '
-        'btnSetUpComNetClient
-        '
-        Me.btnSetUpComNetClient.Location = New System.Drawing.Point(428, 397)
-        Me.btnSetUpComNetClient.Name = "btnSetUpComNetClient"
-        Me.btnSetUpComNetClient.Size = New System.Drawing.Size(110, 34)
-        Me.btnSetUpComNetClient.TabIndex = 87
-        Me.btnSetUpComNetClient.Text = "Set Up ComNet Client"
-        Me.btnSetUpComNetClient.UseVisualStyleBackColor = True
-        '
-        'btnGetComNetAppInfo
-        '
-        Me.btnGetComNetAppInfo.Location = New System.Drawing.Point(312, 397)
-        Me.btnGetComNetAppInfo.Name = "btnGetComNetAppInfo"
-        Me.btnGetComNetAppInfo.Size = New System.Drawing.Size(110, 34)
-        Me.btnGetComNetAppInfo.TabIndex = 86
-        Me.btnGetComNetAppInfo.Text = "Get Message Service App Info"
-        Me.btnGetComNetAppInfo.UseVisualStyleBackColor = True
-        '
-        'btnGetAppList
-        '
-        Me.btnGetAppList.Location = New System.Drawing.Point(159, 397)
-        Me.btnGetAppList.Name = "btnGetAppList"
-        Me.btnGetAppList.Size = New System.Drawing.Size(147, 34)
-        Me.btnGetAppList.TabIndex = 85
-        Me.btnGetAppList.Text = "Get Application List"
-        Me.btnGetAppList.UseVisualStyleBackColor = True
-        '
-        'btnGetConnectionList
-        '
-        Me.btnGetConnectionList.Location = New System.Drawing.Point(6, 397)
-        Me.btnGetConnectionList.Name = "btnGetConnectionList"
-        Me.btnGetConnectionList.Size = New System.Drawing.Size(147, 34)
-        Me.btnGetConnectionList.TabIndex = 84
-        Me.btnGetConnectionList.Text = "Get Connection List"
-        Me.btnGetConnectionList.UseVisualStyleBackColor = True
-        '
         'Label79
         '
         Me.Label79.AutoSize = True
@@ -2335,7 +2310,7 @@ Partial Class Main
         '
         Me.txtCurrentDuration.Location = New System.Drawing.Point(471, 369)
         Me.txtCurrentDuration.Name = "txtCurrentDuration"
-        Me.txtCurrentDuration.Size = New System.Drawing.Size(85, 20)
+        Me.txtCurrentDuration.Size = New System.Drawing.Size(120, 20)
         Me.txtCurrentDuration.TabIndex = 78
         '
         'Label29
@@ -2351,7 +2326,7 @@ Partial Class Main
         '
         Me.txtTotalDuration.Location = New System.Drawing.Point(283, 369)
         Me.txtTotalDuration.Name = "txtTotalDuration"
-        Me.txtTotalDuration.Size = New System.Drawing.Size(85, 20)
+        Me.txtTotalDuration.Size = New System.Drawing.Size(120, 20)
         Me.txtTotalDuration.TabIndex = 75
         '
         'Label30
@@ -2580,6 +2555,28 @@ Partial Class Main
         Me.btnAndorville.Size = New System.Drawing.Size(118, 29)
         Me.btnAndorville.TabIndex = 51
         Me.btnAndorville.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(512, 120)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(142, 13)
+        Me.Label6.TabIndex = 305
+        Me.Label6.Text = "Use the Application Tree tab"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(512, 133)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(155, 13)
+        Me.Label8.TabIndex = 306
+        Me.Label8.Text = "to add an application to this list."
         '
         'Main
         '
@@ -2842,12 +2839,7 @@ Partial Class Main
     Friend WithEvents txtSystemLocationType As TextBox
     Friend WithEvents txtSystemPath As TextBox
     Friend WithEvents btnOnline As Button
-    Friend WithEvents btnGetConnectionList As Button
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents btnGetAppList As Button
-    Friend WithEvents btnGetComNetAppInfo As Button
-    Friend WithEvents btnSetUpComNetClient As Button
-    Friend WithEvents btnCheckComNet As Button
     Friend WithEvents btnAddApplication As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents txtNodeText As TextBox
@@ -2862,8 +2854,6 @@ Partial Class Main
     Friend WithEvents Label81 As Label
     Friend WithEvents Timer3 As Timer
     Friend WithEvents btnOpenAppDir As Button
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents btnOpenSystem As Button
     Friend WithEvents btnOpenData As Button
     Friend WithEvents btnOpenSettings As Button
@@ -2880,4 +2870,11 @@ Partial Class Main
     Friend WithEvents Label5 As Label
     Friend WithEvents btnShowChildProjectInfo As Button
     Friend WithEvents btnOpenPath As Button
+    Friend WithEvents btnOpenParentDir As Button
+    Friend WithEvents btnOpenArchive As Button
+    Friend WithEvents btnCreateArchive As Button
+    Friend WithEvents btnShowProjectInfo As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label6 As Label
 End Class
