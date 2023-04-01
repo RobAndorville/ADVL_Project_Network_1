@@ -283,16 +283,18 @@ Public Class Main
                     ClientProNetName = ""
                     ClientConnName = ""
                     ClientAppName = ""
-                    xlocns.Clear() 'Clear the list of locations in the reply message. 
-                    Dim Decl As New XDeclaration("1.0", "utf-8", "yes")
+                xlocns.Clear() 'Clear the list of locations in the reply message. 
+
+                Dim Decl As New XDeclaration("1.0", "utf-8", "yes")
                     MessageXDoc = New XDocument(Decl, Nothing) 'Reply message - this will be sent to the Client App.
                 'xmessage = New XElement("XMsg")
                 xmessage = New XElement(MsgType)
                 xlocns.Add(New XElement("Main")) 'Initially set the location in the Client App to Main.
 
-                    'Run the received message:
-                    Dim XmlHeader As String = "<?xml version=""1.0"" encoding=""utf-8"" standalone=""yes""?>"
-                    XDoc.LoadXml(XmlHeader & vbCrLf & Instructions.Replace("&", "&amp;")) 'Replace "&" with "&amp:" before loading the XML text.
+                'Run the received message:
+                Dim XmlHeader As String = "<?xml version=""1.0"" encoding=""utf-8"" standalone=""yes""?>"
+
+                XDoc.LoadXml(XmlHeader & vbCrLf & Instructions.Replace("&", "&amp;")) 'Replace "&" with "&amp:" before loading the XML text.
                 'If ShowXMessages Then
                 '    Message.XAddXml(XDoc)   'Add the message to the XMessages window.
                 '    Message.XAddText(vbCrLf, "Normal") 'Add extra line
@@ -635,13 +637,11 @@ Public Class Main
 
     Private Sub DefaultAppProperties()
 
-        'ApplicationInfo.Name = "ADVL_Application_Network_1"
         ApplicationInfo.Name = "ADVL_Project_Network_1"
 
         'ApplicationInfo.ApplicationDir is set when the application is started.
         ApplicationInfo.ExecutablePath = Application.ExecutablePath
 
-        'ApplicationInfo.Description = "The Application Network is used to link Andorville (TM) software applications."
         ApplicationInfo.Description = "The Project Network is used to build a network of Andorville (TM) projects."
         ApplicationInfo.CreationDate = "4-Jul-2016 20:47:00"
 
@@ -911,7 +911,6 @@ Public Class Main
 
         'Start showing messages here - Message system is set up.
         Message.AddText("------------------- Starting Application: ADVL Project Network  ----------------- " & vbCrLf, "Heading")
-        'Message.AddText("Application usage: Total duration = " & Format(ApplicationUsage.TotalDuration.TotalHours, "#.##") & " hours" & vbCrLf, "Normal")
         Dim TotalDuration As String = ApplicationUsage.TotalDuration.Days.ToString.PadLeft(5, "0"c) & "d:" &
                            ApplicationUsage.TotalDuration.Hours.ToString.PadLeft(2, "0"c) & "h:" &
                            ApplicationUsage.TotalDuration.Minutes.ToString.PadLeft(2, "0"c) & "m:" &
@@ -5991,6 +5990,8 @@ Public Class Main
         Project.Usage.SaveUsageInfo() 'Save the current project usage information.
         Project.UnlockProject() 'Unlock the current project before it Is closed.
 
+        If ConnectedToComNet Then DisconnectFromComNet() 'ADDED 21Jan23 TO BE CHECKED
+
         'Reset Workflow page:
         OpenStartPage()
 
@@ -6802,7 +6803,6 @@ Public Class Main
                 Dim name As New XElement("Name", Me.ApplicationInfo.Name)
                 applicationInfo.Add(name)
 
-                'Dim text As New XElement("Text", "Application Network")
                 Dim text As New XElement("Text", "Project Network")
                 applicationInfo.Add(text)
 
